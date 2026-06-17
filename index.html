@@ -3,161 +3,384 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Press Card Verification | Naya Express Media Group</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<title>روزنامہ نیا ایکسپریس | کارڈ ویریفیکیشن</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
-        font-family: 'Noto Nastaliq Urdu', Arial, sans-serif;
-        background: #e9ecef;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        padding: 20px;
+        font-family: 'Poppins', 'Noto Nastaliq Urdu', Arial;
+        background:#070707;
+        color:#fff;
+        min-height:100vh;
+        padding:0;
+        margin:0;
+    }
+    .container {
+        max-width:640px;
+        margin:0 auto;
+        padding:25px 20px 60px;
+        min-height:100vh;
+    }
+    
+    /* Header */
+    .top-bar {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 0 35px;
+    }
+    .logo-box {
+        display:flex;
+        align-items:center;
+        gap:12px;
+    }
+    .logo-box img {
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        border:2px solid #00ff88;
+    }
+    .logo-text h3 {
+        font-size:18px;
+        font-weight:700;
+        color:#fff;
+        line-height:1.3;
+    }
+    .logo-text p {
+        font-size:10px;
+        color:#00ff88;
+        letter-spacing:1.8px;
+        margin-top:2px;
+    }
+    
+    .secure {
+        display:flex;
+        align-items:center;
+        gap:7px;
+        color:#00ff88;
+        font-size:12px;
+        font-weight:600;
+    }
+    .secure svg {width:18px; height:18px;}
+    
+    /* Main Content */
+    .main-title {
+        text-align:center;
+        color:#777;
+        letter-spacing:4px;
+        font-size:12px;
+        margin-bottom:8px;
+        font-weight:600;
+    }
+    .member {
+        text-align:center;
+        font-size:14px;
+        color:#aaa;
+        margin-bottom:10px;
+        font-weight:600;
+    }
+    h1 {
+        text-align:center;
+        font-size:46px;
+        color:#00ff88;
+        font-weight:700;
+        margin-bottom:15px;
+        text-shadow:0 0 30px rgba(0,255,136,0.5);
+        letter-spacing:1px;
+    }
+    .desc {
+        text-align:center;
+        color:#999;
+        font-size:15px;
+        line-height:1.8;
+        max-width:500px;
+        margin:0 auto 45px;
     }
     
     /* Verification Box */
     .verify-box {
-        width: 380px;
-        background: #fff;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-        padding: 40px 30px;
-        text-align: center;
-        border: 4px solid #0a3d62;
+        background:linear-gradient(135deg, rgba(12,25,15,0.95) 0%, rgba(8,15,10,0.95) 100%);
+        border:2px solid rgba(0,255,136,0.5);
+        border-radius:20px;
+        padding:40px 30px;
+        backdrop-filter:blur(15px);
+        box-shadow:0 0 40px rgba(0,255,136,0.15);
+        margin-bottom:60px;
     }
-    .verify-title {
-        color: #0a3d62;
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 10px;
+    .label-green {
+        color:#00ff88;
+        font-size:13px;
+        font-weight:700;
+        letter-spacing:2.5px;
+        margin-bottom:14px;
+        display:flex;
+        align-items:center;
+        gap:10px;
     }
-    .verify-sub {
-        color: #666;
-        font-size: 14px;
-        margin-bottom: 30px;
-    }
-    .verify-box input {
-        width: 100%;
-        padding: 15px;
-        border: 2px solid #0a3d62;
-        border-radius: 10px;
-        font-size: 16px;
-        text-align: center;
-        margin-bottom: 15px;
-        font-family: 'Noto Nastaliq Urdu';
-    }
-    .verify-box input:focus {
-        outline: none;
-        border-color: #f4b400;
-        box-shadow: 0 0 10px rgba(244,180,0,0.3);
-    }
-    .verify-btn {
-        width: 100%;
-        padding: 15px;
-        background: linear-gradient(135deg, #0a3d62 0%, #1e6091 100%);
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 18px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .verify-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(10,61,98,0.4);
+    .label-green::before {
+        content:"";
+        width:4px;
+        height:20px;
+        background:#00ff88;
+        border-radius:3px;
+        box-shadow:0 0 10px #00ff88;
     }
     
-    /* Press Card - Your Design */
-    .press-card {
-        width: 380px;
-        background: linear-gradient(135deg, #0a3d62 0%, #1e6091 100%);
-        color: #fff;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-        overflow: hidden;
-        border: 4px solid #f4b400;
-        display: none;
+    input {
+        width:100%;
+        background:#0a0a0a;
+        border:2px solid #1a2a1a;
+        border-radius:14px;
+        padding:20px;
+        color:#fff;
+        font-size:17px;
+        text-align:center;
+        margin-bottom:20px;
+        font-family: 'Poppins';
+        transition:0.3s;
+        letter-spacing:1.5px;
+        font-weight:500;
     }
-    .header {
-        background: #f4b400;
-        color: #0a3d62;
-        text-align: center;
-        padding: 14px;
-        font-weight: 700;
-        font-size: 20px;
+    input:focus {
+        outline:none;
+        border-color:#00ff88;
+        box-shadow:0 0 25px rgba(0,255,136,0.4);
+        background:#0f0f0f;
+    }
+    input::placeholder {color:#444;}
+    
+    .verify-btn {
+        width:100%;
+        background:transparent;
+        border:2.5px solid #ffb400;
+        color:#ffb400;
+        padding:20px;
+        border-radius:14px;
+        font-size:18px;
+        font-weight:700;
+        cursor:pointer;
+        transition:0.3s;
+        letter-spacing:3px;
+    }
+    .verify-btn:hover {
+        background:#ffb400;
+        color:#000;
+        box-shadow:0 0 30px rgba(255,180,0,0.6);
+        transform:translateY(-3px);
+    }
+    
+    .demo {
+        text-align:center;
+        margin-top:18px;
+        color:#666;
+        font-size:13px;
+    }
+    .demo span {
+        color:#00ff88;
+        font-weight:700;
+        cursor:pointer;
+        text-decoration:underline;
+    }
+    
+    /* How it Works */
+    .how-title {
+        text-align:center;
+        margin-bottom:35px;
+        color:#888;
+        letter-spacing:4px;
+        font-size:13px;
+        font-weight:600;
+    }
+    
+    .grid {
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:18px;
+        margin-bottom:60px;
+    }
+    .card {
+        background:rgba(15,25,20,0.8);
+        border:2px solid rgba(0,255,136,0.3);
+        border-radius:18px;
+        padding:30px 18px;
+        text-align:center;
+        transition:0.4s;
+    }
+    .card:hover {
+        border-color:#00ff88;
+        box-shadow:0 0 25px rgba(0,255,136,0.3);
+        transform:translateY(-5px);
+    }
+    .icon {
+        width:60px;
+        height:60px;
+        border:2.5px solid #00ff88;
+        border-radius:15px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin:0 auto 18px;
+        background:rgba(0,255,136,0.08);
+    }
+    .icon svg {width:28px; height:28px; color:#00ff88;}
+    .card h4 {
+        font-size:17px;
+        color:#fff;
+        margin-bottom:10px;
+        font-weight:700;
+    }
+    .card p {
+        font-size:13px;
+        color:#999;
+        line-height:1.6;
+    }
+    
+    /* Press Card - Exact Your Design */
+    .press-card {
+        background:linear-gradient(135deg, #0a3d62 0%, #1e6091 100%);
+        border-radius:20px;
+        border:4px solid #f4b400;
+        box-shadow:0 0 40px rgba(244,180,0,0.3);
+        margin-top:30px;
+        display:none;
+        overflow:hidden;
+        animation:fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+        from {opacity:0; transform:translateY(30px);}
+        to {opacity:1; transform:translateY(0);}
+    }
+    .card-header {
+        background:#f4b400;
+        color:#0a3d62;
+        text-align:center;
+        padding:18px;
+        font-weight:700;
+        font-size:21px;
+        letter-spacing:1px;
     }
     .sub-header {
-        text-align: center;
-        padding: 10px;
-        background: #0a3d62;
-        font-size: 17px;
-        border-bottom: 2px solid #f4b400;
+        text-align:center;
+        padding:12px;
+        background:#0a3d62;
+        font-size:18px;
+        border-bottom:3px solid #f4b400;
+        font-weight:600;
     }
     .status-bar {
-        background: #28a745;
-        text-align: center;
-        padding: 10px;
-        font-weight: 700;
-        font-size: 15px;
+        background:#28a745;
+        color:#fff;
+        text-align:center;
+        padding:12px;
+        font-weight:700;
+        font-size:16px;
+        letter-spacing:1px;
     }
-    .content {
-        padding: 25px 20px;
-        line-height: 2.2;
-        font-size: 16px;
-    }
-    .label {
-        font-weight: bold;
-        color: #f4b400;
-        display: inline-block;
-        width: 110px;
+    .card-body {
+        padding:30px 25px;
+        line-height:2.4;
+        font-size:17px;
+        color:#fff;
+        text-align:right;
     }
     .photo-box {
-        width: 90px;
-        height: 110px;
-        border: 3px solid #f4b400;
-        background: #fff;
-        float: left;
-        margin: 0 0 15px 15px;
-        border-radius: 8px;
-        overflow: hidden;
+        width:105px;
+        height:130px;
+        border:4px solid #f4b400;
+        float:left;
+        margin:0 0 20px 18px;
+        border-radius:12px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 0 20px rgba(244,180,0,0.4);
     }
     .photo-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+    .label {
+        font-weight:700;
+        color:#f4b400;
+        display:inline-block;
+        width:125px;
+        font-size:17px;
     }
     .footer {
-        clear: both;
-        text-align: center;
-        padding: 12px;
-        background: #000;
-        font-size: 13px;
-        color: #ccc;
-        border-top: 2px solid #f4b400;
+        clear:both;
+        text-align:center;
+        padding:15px;
+        background:#000;
+        font-size:14px;
+        color:#ccc;
+        border-top:3px solid #f4b400;
+    }
+    
+    /* Footer */
+    .site-footer {
+        text-align:center;
+        padding:35px 0 15px;
+        color:#555;
+        font-size:14px;
+        border-top:1px solid #1a1a1a;
+        margin-top:50px;
+    }
+    .site-footer a {
+        color:#00ff88;
+        text-decoration:none;
+        margin:0 12px;
+        font-weight:600;
+    }
+    .site-footer a:hover {text-decoration:underline;}
+    
+    @media(max-width:520px){
+        h1 {font-size:36px;}
+        .grid {grid-template-columns:1fr;}
+        .top-bar {flex-direction:column; gap:18px;}
+        .verify-box {padding:30px 20px;}
     }
 </style>
 </head>
 <body>
 
-<!-- Verification Page -->
-<div class="verify-box" id="verifyBox">
-    <div class="verify-title">پریس کارڈ ویریفیکیشن</div>
-    <div class="verify-sub">NAYA EXPRESS MEDIA GROUP</div>
-    <input type="text" id="cardNo" placeholder="پریس کارڈ نمبر درج کریں" value="34501-4153490-5">
-    <button class="verify-btn" onclick="verifyCard()">ویریفائی کریں</button>
+<div class="container">
+
+<!-- Header -->
+<div class="top-bar">
+    <div class="logo-box">
+        <img src="logo.png" alt="Pak Naya Express Logo">
+        <div class="logo-text">
+            <h3>Pak Naya Express Media Group</h3>
+            <p>VOICE OF TRUTH . STRENGTH OF NATION</p>
+        </div>
+    </div>
+    <div class="secure">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        Secure Verification
+    </div>
 </div>
 
-<!-- Press Card Page -->
+<!-- Main Title -->
+<div class="main-title">PAK NAYA EXPRESS MEDIA GROUP</div>
+<div class="member">MEMBER</div>
+<h1>VERIFICATION</h1>
+<p class="desc">Instantly verify the authenticity of any Naya Express press card or membership credential.</p>
+
+<!-- Verification Box -->
+<div class="verify-box" id="verifyBox">
+    <div class="label-green">ENTER CARD NUMBER</div>
+    <input type="text" id="cardNo" placeholder="NEMG-34501-4153490" value="34501-4153490-5">
+    <button class="verify-btn" onclick="verifyCard()">VERIFY NOW »</button>
+    <div class="demo">Try demo: <span onclick="document.getElementById('cardNo').value='34501-4153490-5'">34501-4153490-5</span></div>
+</div>
+
+<!-- Press Card - Your Exact Design -->
 <div class="press-card" id="pressCard">
-    <div class="header">NAYA EXPRESS MEDIA GROUP</div>
+    <div class="card-header">NAYA EXPRESS MEDIA GROUP</div>
     <div class="sub-header">DAILY NAYA EXPRESS</div>
     <div class="status-bar">Status: Active ✅</div>
     
-    <div class="content">
+    <div class="card-body">
         <div class="photo-box">
             <img src="photo.jpg" alt="Hamid Qazi">
         </div>
@@ -174,14 +397,59 @@
     </div>
 </div>
 
+<!-- How Verification Works -->
+<div class="how-title">HOW VERIFICATION WORKS</div>
+
+<div class="grid">
+    <div class="card">
+        <div class="icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z"/><path d="M6 9h12v2H6z"/></svg>
+        </div>
+        <h4>Enter ID</h4>
+        <p>Type the member card serial or CNIC.</p>
+    </div>
+    
+    <div class="card">
+        <div class="icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </div>
+        <h4>Search</h4>
+        <p>System scans the official NEMG database.</p>
+    </div>
+    
+    <div class="card">
+        <div class="icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        </div>
+        <h4>Verify</h4>
+        <p>Credentials validated in real time.</p>
+    </div>
+    
+    <div class="card">
+        <div class="icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <h4>Result</h4>
+        <p>Full member details and active status.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="site-footer">
+    © 2026 Pak Naya Express Media Group · <a href="#">Home</a> · <a href="#">Admin</a>
+</div>
+
+</div>
+
 <script>
 function verifyCard(){
     let no = document.getElementById('cardNo').value.trim();
     if(no == "34501-4153490-5"){
         document.getElementById('verifyBox').style.display = 'none';
         document.getElementById('pressCard').style.display = 'block';
+        document.querySelector('.how-title').scrollIntoView({behavior:'smooth'});
     } else {
-        alert('غلط پریس کارڈ نمبر! براہ کرم درست نمبر درج کریں: 34501-4153490-5');
+        alert('Invalid Card Number! Use demo: 34501-4153490-5');
     }
 }
 </script>
